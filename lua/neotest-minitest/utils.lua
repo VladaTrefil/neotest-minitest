@@ -36,6 +36,9 @@ M.full_test_name = function(tree)
   if not parent_tree or parent_tree:data().type == "file" then return name end
   local parent_name = parent_tree:data().name
 
+  -- slice name so only the last part after :: is used
+  parent_name = parent_name:match("([^" .. separator .. "]+)$")
+
   -- For rails and spec tests
   if not name:match("^test_") then name = "test_" .. name end
 
@@ -47,6 +50,7 @@ M.get_mappings = function(tree)
   local mappings = {}
   local function name_map(tree)
     local data = tree:data()
+
     if data.type == "test" then
       local full_name = M.full_test_name(tree)
       mappings[full_name] = data.id
