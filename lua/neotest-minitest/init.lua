@@ -61,6 +61,14 @@ function NeotestAdapter.discover_positions(file_path)
         (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest)$"))
     )) @namespace.definition
 
+
+    ; rails unit test classes with scope resolution
+    ((
+      class
+      name: (scope_resolution (constant)) @namespace.name
+      (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest)$"))
+    )) @namespace.definition
+
     ((
       call
       method: (identifier) @func_name (#match? @func_name "^(test)$")
