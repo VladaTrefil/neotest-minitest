@@ -58,7 +58,7 @@ function NeotestAdapter.discover_positions(file_path)
     ((
         class
         name: (constant) @namespace.name
-        (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest)$"))
+        (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest|::CellTest)$"))
     )) @namespace.definition
 
 
@@ -66,7 +66,7 @@ function NeotestAdapter.discover_positions(file_path)
     ((
       class
       name: (scope_resolution (constant)) @namespace.name
-      (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest)$"))
+      (superclass (scope_resolution) @superclass (#match? @superclass "(::IntegrationTest|::TestCase|::BaseControllerTest|::CellTest)$"))
     )) @namespace.definition
 
     ((
